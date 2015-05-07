@@ -1,0 +1,1 @@
+cp %{buildroot}/usr/bin/emacs %{buildroot}/usr/bin/xemacs
