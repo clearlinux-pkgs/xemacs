@@ -4,9 +4,9 @@
 #
 Name     : xemacs
 Version  : 24.5
-Release  : 9
-URL      : http://mirrors.axint.net/repos/gnu.org/emacs/emacs-24.5.tar.xz
-Source0  : http://mirrors.axint.net/repos/gnu.org/emacs/emacs-24.5.tar.xz
+Release  : 10
+URL      : https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
+Source0  : https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.3 GPL-3.0
@@ -29,7 +29,6 @@ BuildRequires : pkgconfig(libxml-2.0)
 BuildRequires : pkgconfig(sm)
 BuildRequires : pkgconfig(xft)
 BuildRequires : texinfo
-BuildRequires : tiff-dev
 
 %description
 See the end of the file for license conditions.
@@ -65,13 +64,13 @@ doc components for the xemacs package.
 %setup -q -n emacs-24.5
 
 %build
-%configure --disable-static --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no
+%configure --disable-static --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no --with-tiff=no
 make V=1  %{?_smp_mflags}
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
+export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install

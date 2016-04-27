@@ -1,4 +1,5 @@
 PKG_NAME := xemacs
-URL := http://mirrors.axint.net/repos/gnu.org/emacs/emacs-24.5.tar.xz
+URL := https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
+ARCHIVES :=
 
 include ../common/Makefile.common
