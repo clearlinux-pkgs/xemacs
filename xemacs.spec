@@ -4,7 +4,7 @@
 #
 Name     : xemacs
 Version  : 24.5
-Release  : 11
+Release  : 12
 URL      : https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
 Source0  : https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
 Summary  : No detailed summary available
