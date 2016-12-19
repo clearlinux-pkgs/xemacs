@@ -4,9 +4,9 @@
 #
 Name     : xemacs
 Version  : 25.1
-Release  : 13
-URL      : http://gnu.mirrors.pair.com/gnu/emacs/emacs-25.1.tar.xz
-Source0  : http://gnu.mirrors.pair.com/gnu/emacs/emacs-25.1.tar.xz
+Release  : 14
+URL      : https://mirrors.kernel.org/gnu/emacs/emacs-25.1.tar.xz
+Source0  : https://mirrors.kernel.org/gnu/emacs/emacs-25.1.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.3 GPL-3.0
