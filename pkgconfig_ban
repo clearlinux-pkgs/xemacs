@@ -5,3 +5,4 @@
 gconf-2.0
 libotf 
 m17n-flt
+glib
