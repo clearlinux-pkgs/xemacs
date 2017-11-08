@@ -6,7 +6,7 @@
 #
 Name     : xemacs
 Version  : 25.3
-Release  : 19
+Release  : 20
 URL      : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz
 Source99 : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz.sig
@@ -68,12 +68,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505161412
-%configure --disable-static --without-xft --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no --with-tiff=no
+export SOURCE_DATE_EPOCH=1510769356
+%configure --disable-static --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no --with-tiff=no
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1505161412
+export SOURCE_DATE_EPOCH=1510769356
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content

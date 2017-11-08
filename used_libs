@@ -3,10 +3,14 @@ libSM.so.6
 libX11-xcb.so.1
 libX11.so.6
 libXfixes.so.3
+libXft.so.2
+libXrender.so.1
 libacl.so.1
 libasound.so.2
 libc.so.6
 libdbus-1.so.3
+libfontconfig.so.1
+libfreetype.so.6
 libgdk-x11-2.0.so.0
 libgdk_pixbuf-2.0.so.0
 libgio-2.0.so.0
