@@ -1,1 +1,2 @@
 cp %{buildroot}/usr/bin/emacs %{buildroot}/usr/bin/xemacs
+sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.desktop

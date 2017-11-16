@@ -6,7 +6,7 @@
 #
 Name     : xemacs
 Version  : 25.3
-Release  : 20
+Release  : 21
 URL      : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz
 Source99 : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz.sig
@@ -68,16 +68,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1510769356
+export SOURCE_DATE_EPOCH=1510853656
 %configure --disable-static --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no --with-tiff=no
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1510769356
+export SOURCE_DATE_EPOCH=1510853656
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content
 cp %{buildroot}/usr/bin/emacs %{buildroot}/usr/bin/xemacs
+sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.desktop
 ## make_install_append end
 
 %files
@@ -103,7 +104,6 @@ cp %{buildroot}/usr/bin/emacs %{buildroot}/usr/bin/xemacs
 %files data
 %defattr(-,root,root,-)
 %exclude /usr/share/appdata/emacs.appdata.xml
-%exclude /usr/share/applications/emacs.desktop
 %exclude /usr/share/emacs/25.3/etc/AUTHORS
 %exclude /usr/share/emacs/25.3/etc/CALC-NEWS
 %exclude /usr/share/emacs/25.3/etc/CENSORSHIP
@@ -4061,6 +4061,7 @@ cp %{buildroot}/usr/bin/emacs %{buildroot}/usr/bin/xemacs
 %exclude /usr/share/icons/hicolor/scalable/apps/emacs.svg
 %exclude /usr/share/icons/hicolor/scalable/mimetypes/emacs-document.svg
 %exclude /usr/share/icons/hicolor/scalable/mimetypes/emacs-document23.svg
+/usr/share/applications/emacs.desktop
 
 %files doc
 %defattr(-,root,root,-)
