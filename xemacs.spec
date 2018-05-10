@@ -6,7 +6,7 @@
 #
 Name     : xemacs
 Version  : 25.3
-Release  : 22
+Release  : 23
 URL      : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz
 Source99 : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz.sig
