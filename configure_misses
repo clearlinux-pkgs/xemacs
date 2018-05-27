@@ -1,6 +1,5 @@
 Configure miss: xcrun
 Configure miss: whether the compiler is clang
-Configure miss: whether C compiler handles -Werror -Wunknown-warning-option
 Configure miss: setfattr
 Configure miss: paxctl
 Configure miss: whether addresses are sanitized
@@ -28,12 +27,8 @@ Configure miss: gpm.h
 Configure miss: maillock in -lmail
 Configure miss: maillock in -llockfile
 Configure miss: liblockfile.so
-Configure miss: valgrind/valgrind.h usability
-Configure miss: valgrind/valgrind.h presence
-Configure miss: valgrind/valgrind.h
 Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
-Configure miss: whether stdint.h predates C++11
 Configure miss: acl_delete_fd_np
 Configure miss: acl_delete_file_np
 Configure miss: acl_copy_ext_native

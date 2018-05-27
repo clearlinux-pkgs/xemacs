@@ -6,7 +6,7 @@
 #
 Name     : xemacs
 Version  : 25.3
-Release  : 23
+Release  : 24
 URL      : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz
 Source99 : https://mirrors.kernel.org/gnu/emacs/emacs-25.3.tar.gz.sig
@@ -15,7 +15,8 @@ Group    : Development/Tools
 License  : GPL-3.0
 Requires: xemacs-bin
 Requires: xemacs-data
-Requires: xemacs-doc
+Requires: xemacs-man
+Requires: emacs
 BuildRequires : acl-dev
 BuildRequires : alsa-lib-dev
 BuildRequires : gtk+-dev
@@ -39,6 +40,7 @@ customizable, self-documenting real-time display editor.
 Summary: bin components for the xemacs package.
 Group: Binaries
 Requires: xemacs-data
+Requires: xemacs-man
 
 %description bin
 bin components for the xemacs package.
@@ -55,9 +57,18 @@ data components for the xemacs package.
 %package doc
 Summary: doc components for the xemacs package.
 Group: Documentation
+Requires: xemacs-man
 
 %description doc
 doc components for the xemacs package.
+
+
+%package man
+Summary: man components for the xemacs package.
+Group: Default
+
+%description man
+man components for the xemacs package.
 
 
 %prep
@@ -68,12 +79,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1510853656
+export SOURCE_DATE_EPOCH=1527436364
 %configure --disable-static --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no --with-tiff=no
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1510853656
+export SOURCE_DATE_EPOCH=1527436364
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content
@@ -4127,6 +4138,9 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/info/widget.info.gz
 %exclude /usr/share/info/wisent.info.gz
 %exclude /usr/share/info/woman.info.gz
+
+%files man
+%defattr(-,root,root,-)
 %exclude /usr/share/man/man1/ctags.1.gz
 %exclude /usr/share/man/man1/ebrowse.1.gz
 %exclude /usr/share/man/man1/emacs.1.gz
