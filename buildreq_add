@@ -11,3 +11,4 @@ libXrandr-dev
 libjpeg-turbo-dev
 ncurses-dev
 texinfo
+gnutls-dev
