@@ -6,7 +6,7 @@
 #
 Name     : xemacs
 Version  : 26.1
-Release  : 26
+Release  : 27
 URL      : https://mirrors.kernel.org/gnu/emacs/emacs-26.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/emacs/emacs-26.1.tar.gz
 Source99 : https://mirrors.kernel.org/gnu/emacs/emacs-26.1.tar.gz.sig
@@ -80,12 +80,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1527568736
+export SOURCE_DATE_EPOCH=1527569499
 %configure --disable-static --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no --with-tiff=no
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1527568736
+export SOURCE_DATE_EPOCH=1527569499
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content
@@ -95,7 +95,7 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/systemd/user/emacs.service
+%exclude /usr/lib64/systemd/user/emacs.service
 
 %files bin
 %defattr(-,root,root,-)

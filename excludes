@@ -4223,3 +4223,4 @@
 /usr/share/emacs/26.1/lisp/textmodes/reftex-loaddefs.el
 /usr/share/emacs/26.1/lisp/xdg.el.gz
 /usr/share/emacs/26.1/lisp/xdg.elc
+/usr/lib64/systemd/user/emacs.service
