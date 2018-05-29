@@ -6,7 +6,7 @@
 #
 Name     : xemacs
 Version  : 26.1
-Release  : 25
+Release  : 26
 URL      : https://mirrors.kernel.org/gnu/emacs/emacs-26.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/emacs/emacs-26.1.tar.gz
 Source99 : https://mirrors.kernel.org/gnu/emacs/emacs-26.1.tar.gz.sig
@@ -80,12 +80,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1527568415
+export SOURCE_DATE_EPOCH=1527568736
 %configure --disable-static --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no --with-tiff=no
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1527568415
+export SOURCE_DATE_EPOCH=1527568736
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content
@@ -144,6 +144,7 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/etc/NEWS.22
 %exclude /usr/share/emacs/26.1/etc/NEWS.23
 %exclude /usr/share/emacs/26.1/etc/NEWS.24
+%exclude /usr/share/emacs/26.1/etc/NEWS.25
 %exclude /usr/share/emacs/26.1/etc/NEXTSTEP
 %exclude /usr/share/emacs/26.1/etc/NXML-NEWS
 %exclude /usr/share/emacs/26.1/etc/ORDERS
@@ -295,6 +296,7 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/etc/emacs.appdata.xml
 %exclude /usr/share/emacs/26.1/etc/emacs.desktop
 %exclude /usr/share/emacs/26.1/etc/emacs.icon
+%exclude /usr/share/emacs/26.1/etc/emacs.service
 %exclude /usr/share/emacs/26.1/etc/enriched.txt
 %exclude /usr/share/emacs/26.1/etc/forms/README
 %exclude /usr/share/emacs/26.1/etc/forms/forms-d2.dat
@@ -923,6 +925,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/etc/schema/dbstart.rnc
 %exclude /usr/share/emacs/26.1/etc/schema/docbook.rnc
 %exclude /usr/share/emacs/26.1/etc/schema/locate.rnc
+%exclude /usr/share/emacs/26.1/etc/schema/od-manifest-schema-v1.2-os.rnc
+%exclude /usr/share/emacs/26.1/etc/schema/od-schema-v1.2-os.rnc
 %exclude /usr/share/emacs/26.1/etc/schema/rdfxml.rnc
 %exclude /usr/share/emacs/26.1/etc/schema/relaxng.rnc
 %exclude /usr/share/emacs/26.1/etc/schema/schemas.xml
@@ -1034,6 +1038,10 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/arc-mode.elc
 %exclude /usr/share/emacs/26.1/lisp/array.el.gz
 %exclude /usr/share/emacs/26.1/lisp/array.elc
+%exclude /usr/share/emacs/26.1/lisp/auth-source-pass.el.gz
+%exclude /usr/share/emacs/26.1/lisp/auth-source-pass.elc
+%exclude /usr/share/emacs/26.1/lisp/auth-source.el.gz
+%exclude /usr/share/emacs/26.1/lisp/auth-source.elc
 %exclude /usr/share/emacs/26.1/lisp/autoarg.el.gz
 %exclude /usr/share/emacs/26.1/lisp/autoarg.elc
 %exclude /usr/share/emacs/26.1/lisp/autoinsert.el.gz
@@ -1552,6 +1560,7 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/dframe.elc
 %exclude /usr/share/emacs/26.1/lisp/dired-aux.el.gz
 %exclude /usr/share/emacs/26.1/lisp/dired-aux.elc
+%exclude /usr/share/emacs/26.1/lisp/dired-loaddefs.el
 %exclude /usr/share/emacs/26.1/lisp/dired-x.el.gz
 %exclude /usr/share/emacs/26.1/lisp/dired-x.elc
 %exclude /usr/share/emacs/26.1/lisp/dired.el.gz
@@ -1560,6 +1569,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/dirtrack.elc
 %exclude /usr/share/emacs/26.1/lisp/disp-table.el.gz
 %exclude /usr/share/emacs/26.1/lisp/disp-table.elc
+%exclude /usr/share/emacs/26.1/lisp/display-line-numbers.el.gz
+%exclude /usr/share/emacs/26.1/lisp/display-line-numbers.elc
 %exclude /usr/share/emacs/26.1/lisp/dnd.el.gz
 %exclude /usr/share/emacs/26.1/lisp/dnd.elc
 %exclude /usr/share/emacs/26.1/lisp/doc-view.el.gz
@@ -1580,6 +1591,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/ebuff-menu.elc
 %exclude /usr/share/emacs/26.1/lisp/echistory.el.gz
 %exclude /usr/share/emacs/26.1/lisp/echistory.elc
+%exclude /usr/share/emacs/26.1/lisp/ecomplete.el.gz
+%exclude /usr/share/emacs/26.1/lisp/ecomplete.elc
 %exclude /usr/share/emacs/26.1/lisp/edmacro.el.gz
 %exclude /usr/share/emacs/26.1/lisp/edmacro.elc
 %exclude /usr/share/emacs/26.1/lisp/ehelp.el.gz
@@ -1629,6 +1642,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/cl-macs.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/cl-preloaded.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/cl-preloaded.elc
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/cl-print.el.gz
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/cl-print.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/cl-seq.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/cl-seq.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/cl.el.gz
@@ -1661,6 +1676,7 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/eieio-custom.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/eieio-datadebug.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/eieio-datadebug.elc
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/eieio-loaddefs.el
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/eieio-opt.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/eieio-opt.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/eieio-speedbar.el.gz
@@ -1717,6 +1733,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/pcase.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/pp.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/pp.elc
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/radix-tree.el.gz
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/radix-tree.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/re-builder.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/re-builder.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/regexp-opt.el.gz
@@ -1725,6 +1743,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/regi.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/ring.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/ring.elc
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/rmc.el.gz
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/rmc.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/rx.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/rx.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/seq.el.gz
@@ -1747,6 +1767,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/testcover.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/thunk.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/thunk.elc
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/timer-list.el.gz
+%exclude /usr/share/emacs/26.1/lisp/emacs-lisp/timer-list.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/timer.el.gz
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/timer.elc
 %exclude /usr/share/emacs/26.1/lisp/emacs-lisp/tq.el.gz
@@ -2064,6 +2086,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/gnus/gnus-range.elc
 %exclude /usr/share/emacs/26.1/lisp/gnus/gnus-registry.el.gz
 %exclude /usr/share/emacs/26.1/lisp/gnus/gnus-registry.elc
+%exclude /usr/share/emacs/26.1/lisp/gnus/gnus-rfc1843.el.gz
+%exclude /usr/share/emacs/26.1/lisp/gnus/gnus-rfc1843.elc
 %exclude /usr/share/emacs/26.1/lisp/gnus/gnus-salt.el.gz
 %exclude /usr/share/emacs/26.1/lisp/gnus/gnus-salt.elc
 %exclude /usr/share/emacs/26.1/lisp/gnus/gnus-score.el.gz
@@ -2220,12 +2244,14 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/hippie-exp.elc
 %exclude /usr/share/emacs/26.1/lisp/hl-line.el.gz
 %exclude /usr/share/emacs/26.1/lisp/hl-line.elc
+%exclude /usr/share/emacs/26.1/lisp/htmlfontify-loaddefs.el
 %exclude /usr/share/emacs/26.1/lisp/htmlfontify.el.gz
 %exclude /usr/share/emacs/26.1/lisp/htmlfontify.elc
 %exclude /usr/share/emacs/26.1/lisp/ibuf-ext.el.gz
 %exclude /usr/share/emacs/26.1/lisp/ibuf-ext.elc
 %exclude /usr/share/emacs/26.1/lisp/ibuf-macs.el.gz
 %exclude /usr/share/emacs/26.1/lisp/ibuf-macs.elc
+%exclude /usr/share/emacs/26.1/lisp/ibuffer-loaddefs.el
 %exclude /usr/share/emacs/26.1/lisp/ibuffer.el.gz
 %exclude /usr/share/emacs/26.1/lisp/ibuffer.elc
 %exclude /usr/share/emacs/26.1/lisp/icomplete.el.gz
@@ -2244,6 +2270,10 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/image-mode.elc
 %exclude /usr/share/emacs/26.1/lisp/image.el.gz
 %exclude /usr/share/emacs/26.1/lisp/image.elc
+%exclude /usr/share/emacs/26.1/lisp/image/compface.el.gz
+%exclude /usr/share/emacs/26.1/lisp/image/compface.elc
+%exclude /usr/share/emacs/26.1/lisp/image/gravatar.el.gz
+%exclude /usr/share/emacs/26.1/lisp/image/gravatar.elc
 %exclude /usr/share/emacs/26.1/lisp/imenu.el.gz
 %exclude /usr/share/emacs/26.1/lisp/imenu.elc
 %exclude /usr/share/emacs/26.1/lisp/indent.el.gz
@@ -2303,6 +2333,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/international/ogonek.elc
 %exclude /usr/share/emacs/26.1/lisp/international/quail.el.gz
 %exclude /usr/share/emacs/26.1/lisp/international/quail.elc
+%exclude /usr/share/emacs/26.1/lisp/international/rfc1843.el.gz
+%exclude /usr/share/emacs/26.1/lisp/international/rfc1843.elc
 %exclude /usr/share/emacs/26.1/lisp/international/robin.el.gz
 %exclude /usr/share/emacs/26.1/lisp/international/robin.elc
 %exclude /usr/share/emacs/26.1/lisp/international/titdic-cnv.el.gz
@@ -2322,10 +2354,15 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/international/uni-name.el
 %exclude /usr/share/emacs/26.1/lisp/international/uni-numeric.el
 %exclude /usr/share/emacs/26.1/lisp/international/uni-old-name.el
+%exclude /usr/share/emacs/26.1/lisp/international/uni-special-lowercase.el
+%exclude /usr/share/emacs/26.1/lisp/international/uni-special-titlecase.el
+%exclude /usr/share/emacs/26.1/lisp/international/uni-special-uppercase.el
 %exclude /usr/share/emacs/26.1/lisp/international/uni-titlecase.el
 %exclude /usr/share/emacs/26.1/lisp/international/uni-uppercase.el
 %exclude /usr/share/emacs/26.1/lisp/international/utf-7.el.gz
 %exclude /usr/share/emacs/26.1/lisp/international/utf-7.elc
+%exclude /usr/share/emacs/26.1/lisp/international/utf7.el.gz
+%exclude /usr/share/emacs/26.1/lisp/international/utf7.elc
 %exclude /usr/share/emacs/26.1/lisp/isearch.el.gz
 %exclude /usr/share/emacs/26.1/lisp/isearch.elc
 %exclude /usr/share/emacs/26.1/lisp/isearchb.el.gz
@@ -2565,14 +2602,22 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/mail/emacsbug.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/feedmail.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/feedmail.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/flow-fill.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/flow-fill.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/footnote.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/footnote.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/hashcash.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/hashcash.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/ietf-drums.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/ietf-drums.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/mail-extr.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/mail-extr.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/mail-hist.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/mail-hist.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/mail-parse.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/mail-parse.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/mail-prsvr.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/mail-prsvr.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/mail-utils.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/mail-utils.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/mailabbrev.el.gz
@@ -2587,12 +2632,21 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/mail/metamail.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/mspools.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/mspools.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/qp.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/qp.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/reporter.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/reporter.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/rfc2045.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/rfc2045.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/rfc2047.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/rfc2047.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/rfc2231.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/rfc2231.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/rfc2368.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/rfc2368.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/rfc822.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/rfc822.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/rmail-loaddefs.el
 %exclude /usr/share/emacs/26.1/lisp/mail/rmail-spam-filter.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/rmail-spam-filter.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/rmail.el.gz
@@ -2625,6 +2679,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/mail/unrmail.elc
 %exclude /usr/share/emacs/26.1/lisp/mail/uudecode.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mail/uudecode.elc
+%exclude /usr/share/emacs/26.1/lisp/mail/yenc.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mail/yenc.elc
 %exclude /usr/share/emacs/26.1/lisp/makesum.el.gz
 %exclude /usr/share/emacs/26.1/lisp/makesum.elc
 %exclude /usr/share/emacs/26.1/lisp/man.el.gz
@@ -2644,12 +2700,16 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-buffers.elc
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-comp.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-comp.elc
+%exclude /usr/share/emacs/26.1/lisp/mh-e/mh-compat.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mh-e/mh-compat.elc
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-e.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-e.elc
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-folder.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-folder.elc
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-funcs.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-funcs.elc
+%exclude /usr/share/emacs/26.1/lisp/mh-e/mh-gnus.el.gz
+%exclude /usr/share/emacs/26.1/lisp/mh-e/mh-gnus.elc
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-identity.el.gz
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-identity.elc
 %exclude /usr/share/emacs/26.1/lisp/mh-e/mh-inc.el.gz
@@ -2745,6 +2805,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/net/imap.elc
 %exclude /usr/share/emacs/26.1/lisp/net/ldap.el.gz
 %exclude /usr/share/emacs/26.1/lisp/net/ldap.elc
+%exclude /usr/share/emacs/26.1/lisp/net/mailcap.el.gz
+%exclude /usr/share/emacs/26.1/lisp/net/mailcap.elc
 %exclude /usr/share/emacs/26.1/lisp/net/mairix.el.gz
 %exclude /usr/share/emacs/26.1/lisp/net/mairix.elc
 %exclude /usr/share/emacs/26.1/lisp/net/net-utils.el.gz
@@ -2769,6 +2831,10 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/net/nsm.elc
 %exclude /usr/share/emacs/26.1/lisp/net/ntlm.el.gz
 %exclude /usr/share/emacs/26.1/lisp/net/ntlm.elc
+%exclude /usr/share/emacs/26.1/lisp/net/pop3.el.gz
+%exclude /usr/share/emacs/26.1/lisp/net/pop3.elc
+%exclude /usr/share/emacs/26.1/lisp/net/puny.el.gz
+%exclude /usr/share/emacs/26.1/lisp/net/puny.elc
 %exclude /usr/share/emacs/26.1/lisp/net/quickurl.el.gz
 %exclude /usr/share/emacs/26.1/lisp/net/quickurl.elc
 %exclude /usr/share/emacs/26.1/lisp/net/rcirc.el.gz
@@ -2793,6 +2859,12 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/net/shr-color.elc
 %exclude /usr/share/emacs/26.1/lisp/net/shr.el.gz
 %exclude /usr/share/emacs/26.1/lisp/net/shr.elc
+%exclude /usr/share/emacs/26.1/lisp/net/sieve-manage.el.gz
+%exclude /usr/share/emacs/26.1/lisp/net/sieve-manage.elc
+%exclude /usr/share/emacs/26.1/lisp/net/sieve-mode.el.gz
+%exclude /usr/share/emacs/26.1/lisp/net/sieve-mode.elc
+%exclude /usr/share/emacs/26.1/lisp/net/sieve.el.gz
+%exclude /usr/share/emacs/26.1/lisp/net/sieve.elc
 %exclude /usr/share/emacs/26.1/lisp/net/snmp-mode.el.gz
 %exclude /usr/share/emacs/26.1/lisp/net/snmp-mode.elc
 %exclude /usr/share/emacs/26.1/lisp/net/soap-client.el.gz
@@ -2801,6 +2873,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/net/soap-inspect.elc
 %exclude /usr/share/emacs/26.1/lisp/net/socks.el.gz
 %exclude /usr/share/emacs/26.1/lisp/net/socks.elc
+%exclude /usr/share/emacs/26.1/lisp/net/starttls.el.gz
+%exclude /usr/share/emacs/26.1/lisp/net/starttls.elc
 %exclude /usr/share/emacs/26.1/lisp/net/telnet.el.gz
 %exclude /usr/share/emacs/26.1/lisp/net/telnet.elc
 %exclude /usr/share/emacs/26.1/lisp/net/tls.el.gz
@@ -2906,8 +2980,12 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/obsolete/eudcb-ph.elc
 %exclude /usr/share/emacs/26.1/lisp/obsolete/fast-lock.el.gz
 %exclude /usr/share/emacs/26.1/lisp/obsolete/fast-lock.elc
+%exclude /usr/share/emacs/26.1/lisp/obsolete/gs.el.gz
+%exclude /usr/share/emacs/26.1/lisp/obsolete/gs.elc
 %exclude /usr/share/emacs/26.1/lisp/obsolete/gulp.el.gz
 %exclude /usr/share/emacs/26.1/lisp/obsolete/gulp.elc
+%exclude /usr/share/emacs/26.1/lisp/obsolete/html2text.el.gz
+%exclude /usr/share/emacs/26.1/lisp/obsolete/html2text.elc
 %exclude /usr/share/emacs/26.1/lisp/obsolete/iswitchb.el.gz
 %exclude /usr/share/emacs/26.1/lisp/obsolete/iswitchb.elc
 %exclude /usr/share/emacs/26.1/lisp/obsolete/landmark.el.gz
@@ -2928,6 +3006,7 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/obsolete/mailpost.elc
 %exclude /usr/share/emacs/26.1/lisp/obsolete/meese.el.gz
 %exclude /usr/share/emacs/26.1/lisp/obsolete/meese.elc
+%exclude /usr/share/emacs/26.1/lisp/obsolete/messcompat.el
 %exclude /usr/share/emacs/26.1/lisp/obsolete/mouse-sel.el.gz
 %exclude /usr/share/emacs/26.1/lisp/obsolete/mouse-sel.elc
 %exclude /usr/share/emacs/26.1/lisp/obsolete/old-emacs-lock.el.gz
@@ -2986,8 +3065,12 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/obsolete/yow.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-C.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-C.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-J.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-J.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-R.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-R.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-abc.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-abc.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-asymptote.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-asymptote.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-awk.el.gz
@@ -2998,6 +3081,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/org/ob-clojure.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-comint.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-comint.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-coq.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-coq.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-core.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-core.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-css.el.gz
@@ -3006,18 +3091,26 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/org/ob-ditaa.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-dot.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-dot.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-ebnf.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-ebnf.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-emacs-lisp.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-emacs-lisp.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-eval.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-eval.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-exp.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-exp.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-forth.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-forth.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-fortran.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-fortran.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-gnuplot.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-gnuplot.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-groovy.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-groovy.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-haskell.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-haskell.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-hledger.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-hledger.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-io.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-io.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-java.el.gz
@@ -3036,6 +3129,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/org/ob-lisp.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-lob.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-lob.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-lua.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-lua.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-makefile.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-makefile.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-matlab.el.gz
@@ -3056,6 +3151,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/org/ob-picolisp.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-plantuml.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-plantuml.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-processing.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-processing.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-python.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-python.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-ref.el.gz
@@ -3068,16 +3165,24 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/org/ob-scheme.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-screen.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-screen.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-sed.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-sed.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-shell.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-shell.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-shen.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-shen.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-sql.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-sql.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-sqlite.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-sqlite.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-stan.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-stan.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-table.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-table.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob-tangle.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob-tangle.elc
+%exclude /usr/share/emacs/26.1/lisp/org/ob-vala.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/ob-vala.elc
 %exclude /usr/share/emacs/26.1/lisp/org/ob.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/ob.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-agenda.el.gz
@@ -3106,12 +3211,16 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/org/org-datetree.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-docview.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/org-docview.elc
+%exclude /usr/share/emacs/26.1/lisp/org/org-duration.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/org-duration.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-element.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/org-element.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-entities.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/org-entities.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-eshell.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/org-eshell.elc
+%exclude /usr/share/emacs/26.1/lisp/org/org-eww.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/org-eww.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-faces.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/org-faces.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-feed.el.gz
@@ -3133,6 +3242,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/org/org-install.el
 %exclude /usr/share/emacs/26.1/lisp/org/org-irc.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/org-irc.elc
+%exclude /usr/share/emacs/26.1/lisp/org/org-lint.el.gz
+%exclude /usr/share/emacs/26.1/lisp/org/org-lint.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-list.el.gz
 %exclude /usr/share/emacs/26.1/lisp/org/org-list.elc
 %exclude /usr/share/emacs/26.1/lisp/org/org-loaddefs.el
@@ -3209,6 +3320,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/pcmpl-x.elc
 %exclude /usr/share/emacs/26.1/lisp/pcomplete.el.gz
 %exclude /usr/share/emacs/26.1/lisp/pcomplete.elc
+%exclude /usr/share/emacs/26.1/lisp/pixel-scroll.el.gz
+%exclude /usr/share/emacs/26.1/lisp/pixel-scroll.elc
 %exclude /usr/share/emacs/26.1/lisp/play/5x5.el.gz
 %exclude /usr/share/emacs/26.1/lisp/play/5x5.elc
 %exclude /usr/share/emacs/26.1/lisp/play/animate.el.gz
@@ -3259,6 +3372,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/play/tetris.elc
 %exclude /usr/share/emacs/26.1/lisp/play/zone.el.gz
 %exclude /usr/share/emacs/26.1/lisp/play/zone.elc
+%exclude /usr/share/emacs/26.1/lisp/plstore.el.gz
+%exclude /usr/share/emacs/26.1/lisp/plstore.elc
 %exclude /usr/share/emacs/26.1/lisp/printing.el.gz
 %exclude /usr/share/emacs/26.1/lisp/printing.elc
 %exclude /usr/share/emacs/26.1/lisp/proced.el.gz
@@ -3349,6 +3464,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/progmodes/executable.elc
 %exclude /usr/share/emacs/26.1/lisp/progmodes/f90.el.gz
 %exclude /usr/share/emacs/26.1/lisp/progmodes/f90.elc
+%exclude /usr/share/emacs/26.1/lisp/progmodes/flymake-proc.el.gz
+%exclude /usr/share/emacs/26.1/lisp/progmodes/flymake-proc.elc
 %exclude /usr/share/emacs/26.1/lisp/progmodes/flymake.el.gz
 %exclude /usr/share/emacs/26.1/lisp/progmodes/flymake.elc
 %exclude /usr/share/emacs/26.1/lisp/progmodes/fortran.el.gz
@@ -3445,6 +3562,7 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/ps-def.elc
 %exclude /usr/share/emacs/26.1/lisp/ps-mule.el.gz
 %exclude /usr/share/emacs/26.1/lisp/ps-mule.elc
+%exclude /usr/share/emacs/26.1/lisp/ps-print-loaddefs.el
 %exclude /usr/share/emacs/26.1/lisp/ps-print.el.gz
 %exclude /usr/share/emacs/26.1/lisp/ps-print.elc
 %exclude /usr/share/emacs/26.1/lisp/ps-samp.el.gz
@@ -3455,6 +3573,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/rect.elc
 %exclude /usr/share/emacs/26.1/lisp/register.el.gz
 %exclude /usr/share/emacs/26.1/lisp/register.elc
+%exclude /usr/share/emacs/26.1/lisp/registry.el.gz
+%exclude /usr/share/emacs/26.1/lisp/registry.elc
 %exclude /usr/share/emacs/26.1/lisp/repeat.el.gz
 %exclude /usr/share/emacs/26.1/lisp/repeat.elc
 %exclude /usr/share/emacs/26.1/lisp/replace.el.gz
@@ -3467,6 +3587,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/rfn-eshadow.elc
 %exclude /usr/share/emacs/26.1/lisp/rot13.el.gz
 %exclude /usr/share/emacs/26.1/lisp/rot13.elc
+%exclude /usr/share/emacs/26.1/lisp/rtree.el.gz
+%exclude /usr/share/emacs/26.1/lisp/rtree.elc
 %exclude /usr/share/emacs/26.1/lisp/ruler-mode.el.gz
 %exclude /usr/share/emacs/26.1/lisp/ruler-mode.elc
 %exclude /usr/share/emacs/26.1/lisp/savehist.el.gz
@@ -3508,6 +3630,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/subdirs.el
 %exclude /usr/share/emacs/26.1/lisp/subr.el.gz
 %exclude /usr/share/emacs/26.1/lisp/subr.elc
+%exclude /usr/share/emacs/26.1/lisp/svg.el.gz
+%exclude /usr/share/emacs/26.1/lisp/svg.elc
 %exclude /usr/share/emacs/26.1/lisp/t-mouse.el.gz
 %exclude /usr/share/emacs/26.1/lisp/t-mouse.elc
 %exclude /usr/share/emacs/26.1/lisp/tabify.el.gz
@@ -3533,6 +3657,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/term/internal.elc
 %exclude /usr/share/emacs/26.1/lisp/term/iris-ansi.el.gz
 %exclude /usr/share/emacs/26.1/lisp/term/iris-ansi.elc
+%exclude /usr/share/emacs/26.1/lisp/term/konsole.el.gz
+%exclude /usr/share/emacs/26.1/lisp/term/konsole.elc
 %exclude /usr/share/emacs/26.1/lisp/term/linux.el.gz
 %exclude /usr/share/emacs/26.1/lisp/term/linux.elc
 %exclude /usr/share/emacs/26.1/lisp/term/lk201.el.gz
@@ -3549,6 +3675,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/term/screen.elc
 %exclude /usr/share/emacs/26.1/lisp/term/sun.el.gz
 %exclude /usr/share/emacs/26.1/lisp/term/sun.elc
+%exclude /usr/share/emacs/26.1/lisp/term/tmux.el.gz
+%exclude /usr/share/emacs/26.1/lisp/term/tmux.elc
 %exclude /usr/share/emacs/26.1/lisp/term/tty-colors.el.gz
 %exclude /usr/share/emacs/26.1/lisp/term/tty-colors.elc
 %exclude /usr/share/emacs/26.1/lisp/term/tvi970.el.gz
@@ -3589,8 +3717,12 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/textmodes/flyspell.elc
 %exclude /usr/share/emacs/26.1/lisp/textmodes/ispell.el.gz
 %exclude /usr/share/emacs/26.1/lisp/textmodes/ispell.elc
+%exclude /usr/share/emacs/26.1/lisp/textmodes/less-css-mode.el.gz
+%exclude /usr/share/emacs/26.1/lisp/textmodes/less-css-mode.elc
 %exclude /usr/share/emacs/26.1/lisp/textmodes/makeinfo.el.gz
 %exclude /usr/share/emacs/26.1/lisp/textmodes/makeinfo.elc
+%exclude /usr/share/emacs/26.1/lisp/textmodes/mhtml-mode.el.gz
+%exclude /usr/share/emacs/26.1/lisp/textmodes/mhtml-mode.elc
 %exclude /usr/share/emacs/26.1/lisp/textmodes/nroff-mode.el.gz
 %exclude /usr/share/emacs/26.1/lisp/textmodes/nroff-mode.elc
 %exclude /usr/share/emacs/26.1/lisp/textmodes/page-ext.el.gz
@@ -3619,6 +3751,7 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/textmodes/reftex-global.elc
 %exclude /usr/share/emacs/26.1/lisp/textmodes/reftex-index.el.gz
 %exclude /usr/share/emacs/26.1/lisp/textmodes/reftex-index.elc
+%exclude /usr/share/emacs/26.1/lisp/textmodes/reftex-loaddefs.el
 %exclude /usr/share/emacs/26.1/lisp/textmodes/reftex-parse.el.gz
 %exclude /usr/share/emacs/26.1/lisp/textmodes/reftex-parse.elc
 %exclude /usr/share/emacs/26.1/lisp/textmodes/reftex-ref.el.gz
@@ -3863,6 +3996,8 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/emacs/26.1/lisp/woman.elc
 %exclude /usr/share/emacs/26.1/lisp/x-dnd.el.gz
 %exclude /usr/share/emacs/26.1/lisp/x-dnd.elc
+%exclude /usr/share/emacs/26.1/lisp/xdg.el.gz
+%exclude /usr/share/emacs/26.1/lisp/xdg.elc
 %exclude /usr/share/emacs/26.1/lisp/xml.el.gz
 %exclude /usr/share/emacs/26.1/lisp/xml.elc
 %exclude /usr/share/emacs/26.1/lisp/xt-mouse.el.gz
@@ -3880,141 +4015,6 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/icons/hicolor/scalable/mimetypes/emacs-document.svg
 %exclude /usr/share/icons/hicolor/scalable/mimetypes/emacs-document23.svg
 /usr/share/applications/emacs.desktop
-/usr/share/emacs/26.1/etc/NEWS.25
-/usr/share/emacs/26.1/etc/emacs.service
-/usr/share/emacs/26.1/etc/schema/od-manifest-schema-v1.2-os.rnc
-/usr/share/emacs/26.1/etc/schema/od-schema-v1.2-os.rnc
-/usr/share/emacs/26.1/lisp/auth-source-pass.el.gz
-/usr/share/emacs/26.1/lisp/auth-source-pass.elc
-/usr/share/emacs/26.1/lisp/auth-source.el.gz
-/usr/share/emacs/26.1/lisp/auth-source.elc
-/usr/share/emacs/26.1/lisp/dired-loaddefs.el
-/usr/share/emacs/26.1/lisp/display-line-numbers.el.gz
-/usr/share/emacs/26.1/lisp/display-line-numbers.elc
-/usr/share/emacs/26.1/lisp/ecomplete.el.gz
-/usr/share/emacs/26.1/lisp/ecomplete.elc
-/usr/share/emacs/26.1/lisp/emacs-lisp/cl-print.el.gz
-/usr/share/emacs/26.1/lisp/emacs-lisp/cl-print.elc
-/usr/share/emacs/26.1/lisp/emacs-lisp/eieio-loaddefs.el
-/usr/share/emacs/26.1/lisp/emacs-lisp/radix-tree.el.gz
-/usr/share/emacs/26.1/lisp/emacs-lisp/radix-tree.elc
-/usr/share/emacs/26.1/lisp/emacs-lisp/rmc.el.gz
-/usr/share/emacs/26.1/lisp/emacs-lisp/rmc.elc
-/usr/share/emacs/26.1/lisp/emacs-lisp/timer-list.el.gz
-/usr/share/emacs/26.1/lisp/emacs-lisp/timer-list.elc
-/usr/share/emacs/26.1/lisp/gnus/gnus-rfc1843.el.gz
-/usr/share/emacs/26.1/lisp/gnus/gnus-rfc1843.elc
-/usr/share/emacs/26.1/lisp/htmlfontify-loaddefs.el
-/usr/share/emacs/26.1/lisp/ibuffer-loaddefs.el
-/usr/share/emacs/26.1/lisp/image/compface.el.gz
-/usr/share/emacs/26.1/lisp/image/compface.elc
-/usr/share/emacs/26.1/lisp/image/gravatar.el.gz
-/usr/share/emacs/26.1/lisp/image/gravatar.elc
-/usr/share/emacs/26.1/lisp/international/rfc1843.el.gz
-/usr/share/emacs/26.1/lisp/international/rfc1843.elc
-/usr/share/emacs/26.1/lisp/international/uni-special-lowercase.el
-/usr/share/emacs/26.1/lisp/international/uni-special-titlecase.el
-/usr/share/emacs/26.1/lisp/international/uni-special-uppercase.el
-/usr/share/emacs/26.1/lisp/international/utf7.el.gz
-/usr/share/emacs/26.1/lisp/international/utf7.elc
-/usr/share/emacs/26.1/lisp/mail/flow-fill.el.gz
-/usr/share/emacs/26.1/lisp/mail/flow-fill.elc
-/usr/share/emacs/26.1/lisp/mail/ietf-drums.el.gz
-/usr/share/emacs/26.1/lisp/mail/ietf-drums.elc
-/usr/share/emacs/26.1/lisp/mail/mail-parse.el.gz
-/usr/share/emacs/26.1/lisp/mail/mail-parse.elc
-/usr/share/emacs/26.1/lisp/mail/mail-prsvr.el.gz
-/usr/share/emacs/26.1/lisp/mail/mail-prsvr.elc
-/usr/share/emacs/26.1/lisp/mail/qp.el.gz
-/usr/share/emacs/26.1/lisp/mail/qp.elc
-/usr/share/emacs/26.1/lisp/mail/rfc2045.el.gz
-/usr/share/emacs/26.1/lisp/mail/rfc2045.elc
-/usr/share/emacs/26.1/lisp/mail/rfc2047.el.gz
-/usr/share/emacs/26.1/lisp/mail/rfc2047.elc
-/usr/share/emacs/26.1/lisp/mail/rfc2231.el.gz
-/usr/share/emacs/26.1/lisp/mail/rfc2231.elc
-/usr/share/emacs/26.1/lisp/mail/rmail-loaddefs.el
-/usr/share/emacs/26.1/lisp/mail/yenc.el.gz
-/usr/share/emacs/26.1/lisp/mail/yenc.elc
-/usr/share/emacs/26.1/lisp/mh-e/mh-compat.el.gz
-/usr/share/emacs/26.1/lisp/mh-e/mh-compat.elc
-/usr/share/emacs/26.1/lisp/mh-e/mh-gnus.el.gz
-/usr/share/emacs/26.1/lisp/mh-e/mh-gnus.elc
-/usr/share/emacs/26.1/lisp/net/mailcap.el.gz
-/usr/share/emacs/26.1/lisp/net/mailcap.elc
-/usr/share/emacs/26.1/lisp/net/pop3.el.gz
-/usr/share/emacs/26.1/lisp/net/pop3.elc
-/usr/share/emacs/26.1/lisp/net/puny.el.gz
-/usr/share/emacs/26.1/lisp/net/puny.elc
-/usr/share/emacs/26.1/lisp/net/sieve-manage.el.gz
-/usr/share/emacs/26.1/lisp/net/sieve-manage.elc
-/usr/share/emacs/26.1/lisp/net/sieve-mode.el.gz
-/usr/share/emacs/26.1/lisp/net/sieve-mode.elc
-/usr/share/emacs/26.1/lisp/net/sieve.el.gz
-/usr/share/emacs/26.1/lisp/net/sieve.elc
-/usr/share/emacs/26.1/lisp/net/starttls.el.gz
-/usr/share/emacs/26.1/lisp/net/starttls.elc
-/usr/share/emacs/26.1/lisp/obsolete/gs.el.gz
-/usr/share/emacs/26.1/lisp/obsolete/gs.elc
-/usr/share/emacs/26.1/lisp/obsolete/html2text.el.gz
-/usr/share/emacs/26.1/lisp/obsolete/html2text.elc
-/usr/share/emacs/26.1/lisp/obsolete/messcompat.el
-/usr/share/emacs/26.1/lisp/org/ob-J.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-J.elc
-/usr/share/emacs/26.1/lisp/org/ob-abc.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-abc.elc
-/usr/share/emacs/26.1/lisp/org/ob-coq.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-coq.elc
-/usr/share/emacs/26.1/lisp/org/ob-ebnf.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-ebnf.elc
-/usr/share/emacs/26.1/lisp/org/ob-forth.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-forth.elc
-/usr/share/emacs/26.1/lisp/org/ob-groovy.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-groovy.elc
-/usr/share/emacs/26.1/lisp/org/ob-hledger.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-hledger.elc
-/usr/share/emacs/26.1/lisp/org/ob-lua.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-lua.elc
-/usr/share/emacs/26.1/lisp/org/ob-processing.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-processing.elc
-/usr/share/emacs/26.1/lisp/org/ob-sed.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-sed.elc
-/usr/share/emacs/26.1/lisp/org/ob-shell.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-shell.elc
-/usr/share/emacs/26.1/lisp/org/ob-stan.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-stan.elc
-/usr/share/emacs/26.1/lisp/org/ob-vala.el.gz
-/usr/share/emacs/26.1/lisp/org/ob-vala.elc
-/usr/share/emacs/26.1/lisp/org/org-duration.el.gz
-/usr/share/emacs/26.1/lisp/org/org-duration.elc
-/usr/share/emacs/26.1/lisp/org/org-eww.el.gz
-/usr/share/emacs/26.1/lisp/org/org-eww.elc
-/usr/share/emacs/26.1/lisp/org/org-lint.el.gz
-/usr/share/emacs/26.1/lisp/org/org-lint.elc
-/usr/share/emacs/26.1/lisp/pixel-scroll.el.gz
-/usr/share/emacs/26.1/lisp/pixel-scroll.elc
-/usr/share/emacs/26.1/lisp/plstore.el.gz
-/usr/share/emacs/26.1/lisp/plstore.elc
-/usr/share/emacs/26.1/lisp/progmodes/flymake-proc.el.gz
-/usr/share/emacs/26.1/lisp/progmodes/flymake-proc.elc
-/usr/share/emacs/26.1/lisp/ps-print-loaddefs.el
-/usr/share/emacs/26.1/lisp/registry.el.gz
-/usr/share/emacs/26.1/lisp/registry.elc
-/usr/share/emacs/26.1/lisp/rtree.el.gz
-/usr/share/emacs/26.1/lisp/rtree.elc
-/usr/share/emacs/26.1/lisp/svg.el.gz
-/usr/share/emacs/26.1/lisp/svg.elc
-/usr/share/emacs/26.1/lisp/term/konsole.el.gz
-/usr/share/emacs/26.1/lisp/term/konsole.elc
-/usr/share/emacs/26.1/lisp/term/tmux.el.gz
-/usr/share/emacs/26.1/lisp/term/tmux.elc
-/usr/share/emacs/26.1/lisp/textmodes/less-css-mode.el.gz
-/usr/share/emacs/26.1/lisp/textmodes/less-css-mode.elc
-/usr/share/emacs/26.1/lisp/textmodes/mhtml-mode.el.gz
-/usr/share/emacs/26.1/lisp/textmodes/mhtml-mode.elc
-/usr/share/emacs/26.1/lisp/textmodes/reftex-loaddefs.el
-/usr/share/emacs/26.1/lisp/xdg.el.gz
-/usr/share/emacs/26.1/lisp/xdg.elc
 
 %files doc
 %defattr(-,root,root,-)
