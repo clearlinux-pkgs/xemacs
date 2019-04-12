@@ -6,7 +6,7 @@
 #
 Name     : xemacs
 Version  : 26.2
-Release  : 28
+Release  : 29
 URL      : https://mirrors.kernel.org/gnu/emacs/emacs-26.2.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/emacs/emacs-26.2.tar.xz
 Source99 : https://mirrors.kernel.org/gnu/emacs/emacs-26.2.tar.xz.sig
@@ -113,13 +113,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555095742
+export SOURCE_DATE_EPOCH=1555096996
 export LDFLAGS="${LDFLAGS} -fno-lto"
 %configure --disable-static --without-m17n-flt --without-libotf --without-xaw3d  --with-xpm=no --with-gif=no --with-tiff=no
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1555095742
+export SOURCE_DATE_EPOCH=1555096996
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xemacs
 cp COPYING %{buildroot}/usr/share/package-licenses/xemacs/COPYING
@@ -4054,12 +4054,12 @@ sed -i 's/Exec=emacs/Exec=xemacs/' %{buildroot}/usr/share/applications/emacs.des
 %exclude /usr/share/icons/hicolor/scalable/apps/emacs.svg
 %exclude /usr/share/icons/hicolor/scalable/mimetypes/emacs-document.svg
 %exclude /usr/share/icons/hicolor/scalable/mimetypes/emacs-document23.svg
+%exclude /usr/share/metainfo/emacs.appdata.xml
 /usr/share/applications/emacs.desktop
-/usr/share/metainfo/emacs.appdata.xml
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/*.h
+%exclude /usr/include/emacs-module.h
 
 %files doc
 %defattr(0644,root,root,0755)

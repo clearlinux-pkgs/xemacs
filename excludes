@@ -4224,3 +4224,5 @@
 /usr/share/emacs/26.2/lisp/xdg.el.gz
 /usr/share/emacs/26.2/lisp/xdg.elc
 /usr/lib64/systemd/user/emacs.service
+/usr/include/emacs-module.h
+/usr/share/metainfo/emacs.appdata.xml
